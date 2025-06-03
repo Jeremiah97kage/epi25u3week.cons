@@ -11,3 +11,20 @@ Dall'analisi abbiamo visto che le porte 111, 407 e 818 sono state individuate co
 Ricapitolando l'attaccante si sta concentrando sulla raccolta di informazioni sull'host vittima attraverso le scansioni di porte con l'obbiettivo di trovare servizi attivi che potrebbero essere vulnerabili a exploit, sfruttando o trasferendo payload dannosi. Infatti come detto all'inizio notiamo vari pacchetti TCP SYN, alle righe 164 e 165 l'attaccante sta cercando poi di manipolare lo stato delle connessioni TCP per effetturare un exploit e inviare un payload dannoso o di sfruttare tale vulnerabilità nota.
 
 In conclusione l'attaccante sta cercando di capire quali servizi sono attivi sulla vittima trovando alcune porte aperte. L'invio di un SYN/ACK da parte dell'attaccante è un comportamento sospetto che indica il tentativo di exploit e invio di payload dannoso sfruttando la vulnerabilità.
+
+Mitigazione dell'Attacco Attuale:
+
+- Monitoraggio Continuo: Continua a monitorare il traffico di rete tra 192.168.200.100 e 192.168.200.150 per rilevare eventuali tentativi di exploit o trasferimento di dati.
+- Analisi dei Servizi Aperti: Indaga i servizi in esecuzione sulle porte aperte di 192.168.200.150. Verifica se ci sono vulnerabilità note associate a queste versioni di software e applica eventuali patch di sicurezza.
+- Blocco dell'IP Sospetto: Se non c'è una ragione legittima per la comunicazione da 192.168.200.100, considera di bloccare temporaneamente il traffico proveniente da questo indirizzo IP a livello di firewall.
+- Isolamento (se necessario): Se si sospetta una compromissione, considera di isolare l'host 192.168.200.150 per prevenire un'eventuale propagazione dell'attacco ad altri sistemi sulla rete.
+
+Prevenzione di Attacchi Simili Futuri:
+
+- Regole Firewall Restrittive: Configura i firewall in modo da consentire solo il traffico necessario verso i servizi esposti. Blocca il traffico in entrata non richiesto.
+- Disabilitazione di Servizi Non Necessari: Rimuovi o disabilita tutti i servizi di rete che non sono essenziali per il funzionamento del sistema.
+- Patch Management: Mantieni tutti i sistemi operativi e le applicazioni aggiornate con le ultime patch di sicurezza per correggere le vulnerabilità note.
+- Monitoraggio e Allerta: Implementa sistemi di monitoraggio della rete e di allerta per rilevare attività di scansione o comportamenti anomali.
+- Principio del Minimo Privilegio: Assicurati che gli utenti e i processi abbiano solo i privilegi necessari per svolgere i propri compiti, per limitare i danni in caso di compromissione.
+- Network Segmentation: Segmenta la rete per limitare il raggio d'azione di un eventuale attacco.
+- Educazione e Consapevolezza: Forma gli utenti sui rischi della sicurezza informatica e sulle pratiche sicure.
